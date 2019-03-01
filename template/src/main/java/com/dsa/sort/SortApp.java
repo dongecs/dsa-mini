@@ -32,9 +32,60 @@ public class SortApp {
         }
     }
 
+    /**
+     * 插入排序
+     * @param arr
+     * @param n
+     */
+    public static void insertionSort(int[] arr, int n) {
+        if (n <= 1) {
+            return ;
+        }
+        for (int i = 1; i < n; ++i) {
+            int tmp = arr[i];
+            int j = i - 1;
+            for (; j >= 0; --j) {
+                if (tmp < arr[j]) {
+                    arr[j+1] = arr[j];
+                } else {
+                    break;
+                }
+            }
+            arr[j+1] = tmp;
+        }
+    }
+
+    /**
+     * 选择排序
+     * @param arr
+     * @param n
+     */
+    public static void selectionSort(int[] arr, int n) {
+        if (n <= 1) {
+            return ;
+        }
+        for (int i = 0; i < n; ++i) {
+            int minValue = arr[i];
+            int minIndex = i;
+            for (int j = i+1; j < n; ++j) {
+                if (minValue > arr[j]) {
+                    minValue = arr[j];
+                    minIndex = j;
+                }
+            }
+            if (minValue != arr[i]) {
+                int tmp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = tmp;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = {3, 1, 2, 5, 8, 6, 0};
-        bubbleSort(arr, arr.length);
+//        bubbleSort(arr, arr.length);
+//        insertionSort(arr, arr.length);
+        selectionSort(arr, arr.length);
         printArr(arr);
     }
 
