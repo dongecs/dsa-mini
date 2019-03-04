@@ -116,11 +116,13 @@ public class SortApp {
     }
 
     public static void main(String[] args) {
-        int[] arr = {3, 1, 2, 5, 8, 6, 0};
+        int[] arr = {3, 1, 2, 5, 8, 6, 0, 10, 9};
 //        bubbleSort(arr, arr.length);
 //        insertionSort(arr, arr.length);
 //        selectionSort(arr, arr.length);
-        quickSort(arr, arr.length);
+//        quickSort(arr, arr.length);
+        Sort sort = new MergeSort();
+        sort.sort(arr, arr.length);
         printArr(arr);
     }
 
