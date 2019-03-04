@@ -81,11 +81,46 @@ public class SortApp {
         }
     }
 
+    private static void quickSort(int[] arr, int n) {
+        quickSortInner(arr, 0, n - 1);
+    }
+
+    private static void quickSortInner(int[] arr, int p, int r) {
+        if (p >= r) {
+            return ;
+        }
+        int q = partition(arr, p, r);
+        quickSortInner(arr, p, q-1);
+        quickSortInner(arr, q+1, r);
+    }
+
+    private static int partition(int[] arr, int p, int r) {
+        int i = p, j =p;
+        int pori = arr[r];
+        for (;j < r;++j) {
+            if (arr[j] < pori) {
+                if (i != j) {
+                    int tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+                i++;
+            }
+        }
+
+        int tmp = arr[i];
+        arr[i] = arr[r];
+        arr[r] = tmp;
+
+        return i;
+    }
+
     public static void main(String[] args) {
         int[] arr = {3, 1, 2, 5, 8, 6, 0};
 //        bubbleSort(arr, arr.length);
 //        insertionSort(arr, arr.length);
-        selectionSort(arr, arr.length);
+//        selectionSort(arr, arr.length);
+        quickSort(arr, arr.length);
         printArr(arr);
     }
 
