@@ -107,7 +107,7 @@ public class BinarySearch {
         while (left <= right) {
             mid = left + ((right-left)>>1);
             if (arr[mid] >= target) {
-                if (mid-1 > 0 && arr[mid-1] < target) {
+                if (mid == 0 || arr[mid-1] < target) {
                     return mid;
                 } else {
                     right = mid -1;
@@ -130,7 +130,7 @@ public class BinarySearch {
         while (left <= right) {
             mid = left+((right-left)>>1);
             if (arr[mid] <= target) {
-                if (mid+1 < arr.length && arr[mid+1] > target) {
+                if (mid == arr .length-1 || arr[mid+1] > target) {
                     return mid;
                 } else {
                     left = mid + 1;
