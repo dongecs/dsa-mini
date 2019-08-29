@@ -1,7 +1,5 @@
 package com.dsa.search;
 
-import java.util.Random;
-
 /**
  * binary Search
  */
